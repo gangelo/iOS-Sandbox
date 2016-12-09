@@ -28,6 +28,14 @@ class UIBalloonLabelLabel: UILabel,  BalloonLabelProtocol {
    }
    
    fileprivate func setUp() {
+      //if let margins = superview?.layoutMarginsGuide {
+      //   self.topAnchor.constraint(equalTo: margins.topAnchor, constant: arrowHeight * 2)
+      //   //self.leadingAnchor.constraintEqualToAnchor(margins.topAnchor).active = true
+      //}
+      
+      //NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: superview, attribute: .leadingMargin, multiplier: 1.0, constant: 8.0).isActive = true
+      
+      //NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: superview, attribute: .leadingMargin, multiplier: 1.0, constant: 8.0).isActive = true
    }
 
    
@@ -93,6 +101,7 @@ class UIBalloonLabelLabel: UILabel,  BalloonLabelProtocol {
    }
 
    func drawBorder(rect: CGRect) {
+      /*
       let startingPointLeft = CGPoint(x: rect.minX, y: rect.minY)
       let endingPointLeft = CGPoint(x: rect.minX, y: rect.maxY)
       
@@ -116,46 +125,12 @@ class UIBalloonLabelLabel: UILabel,  BalloonLabelProtocol {
       path.move(to: startingPointRight)
       path.addLine(to: endingPointRight)
       
-/*
-      let arrowSize = CGFloat(8.0);
-      
-      let startingPoint = CGPoint(x: rect.minX, y: rect.maxY)
-      let endingPoint = CGPoint(x: rect.maxX, y: rect.maxY)
-      
-      let topLeft = CGPoint(x: rect.minX, y: rect.minY)
-
-      let topMiddleLeft = CGPoint(x: (rect.maxX / 2) - arrowSize, y: rect.minY)
-      let topMiddleRight = CGPoint(x: (rect.maxX / 2) + arrowSize, y: rect.minY)
-
-      
-      let topRight = CGPoint(x: rect.maxX, y: rect.minY)
-      
-      
-      let path = UIBezierPath()
-      
-      // Top left
-      path.move(to: topLeft)
-      path.addLine(to: topMiddleLeft)
-      
-      // Arrow here / and \
-      path.move(to: topMiddleLeft)
-      path.addLine(to: CGPoint(x: (rect.maxX / 2) , y: rect.minY))
-      
-      // Top right
-      path.move(to: topMiddleRight)
-      path.addLine(to: topRight)
-
-      
-      // Bottom
-      path.move(to: startingPoint)
-      path.addLine(to: endingPoint)
-*/
-      
       path.lineWidth = self.lineWidth
       
       let color:UIColor = self.borderColor
       color.setStroke()
       
       path.stroke()
+      */
    }
 }

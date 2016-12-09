@@ -123,6 +123,10 @@ class UIBalloonLabelArrowView: UIView,  BalloonLabelProtocol {
       let startingPointArrowRight = CGPoint(x: (maxX / 2) + (arrowWidth / 2), y: minY)
       let endingPointArrowRight = CGPoint(x: (maxX / 2), y: minY - arrowHeight)
       
+      // Bottom
+      let startingPointBottom = CGPoint(x: minX, y: maxY)
+      let endingPointBottom = CGPoint(x: maxX, y: maxY)
+      
       let path = UIBezierPath()
       
       // Top left
@@ -148,6 +152,10 @@ class UIBalloonLabelArrowView: UIView,  BalloonLabelProtocol {
       // Arrow right side
       path.move(to: startingPointArrowRight)
       path.addLine(to: endingPointArrowRight)
+      
+      // Bottom
+      path.move(to: startingPointBottom)
+      path.addLine(to: endingPointBottom)
       
       path.lineWidth = self.lineWidth
       
