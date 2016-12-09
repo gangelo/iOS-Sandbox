@@ -93,32 +93,45 @@ class UIBalloonLabelArrowView: UIView,  BalloonLabelProtocol {
    }
    
    func drawBorder(rect: CGRect) {
+      let minX: CGFloat = rect.minX
+      let maxX: CGFloat = rect.maxX
+      
+      let minY: CGFloat = rect.minY + (arrowHeight + 2)
+      let maxY: CGFloat = rect.maxY
+      
       // Top left
-      let startingPointLeft = CGPoint(x: rect.minX, y: rect.minY)
-      let endingPointLeft = CGPoint(x: (rect.maxX / 2) - (arrowWidth / 2), y: rect.minY)
+      let startingPointTopLeft = CGPoint(x: minX, y: minY)
+      let endingPointTopLeft = CGPoint(x: (maxX / 2) - (arrowWidth / 2), y: minY)
       
       // Top right
-      let startingPointRight = CGPoint(x: (rect.maxX / 2) + (arrowWidth / 2), y: rect.minY)
-      let endingPointRight = CGPoint(x: rect.maxX, y: rect.minY)
+      let startingPointTopRight = CGPoint(x: (maxX / 2) + (arrowWidth / 2), y: minY)
+      let endingPointTopRight = CGPoint(x: maxX, y: minY)
       
       // Left side
-      let startingPointLeftSide = CGPoint(x: rect.minX, y: rect.minY)
-      let endingPointLeftSide = CGPoint(x: rect.minX, y: rect.maxY)
+      let startingPointLeftSide = CGPoint(x: minX, y: minY)
+      let endingPointLeftSide = CGPoint(x: minX, y: maxY)
 
       // Right side
-      let startingPointRightSide = CGPoint(x: rect.maxX, y: rect.minY)
-      let endingPointRightSide = CGPoint(x: rect.maxX, y: rect.maxY)
-
+      let startingPointRightSide = CGPoint(x: maxX, y: minY)
+      let endingPointRightSide = CGPoint(x: maxX, y: maxY)
+      
+      // Arrow left side
+      let startingPointArrowLeft = CGPoint(x: (maxX / 2) - (arrowWidth / 2), y: minY)
+      let endingPointArrowLeft = CGPoint(x: (maxX / 2), y: minY - arrowHeight)
+      
+      // Arror right side
+      let startingPointArrowRight = CGPoint(x: (maxX / 2) + (arrowWidth / 2), y: minY)
+      let endingPointArrowRight = CGPoint(x: (maxX / 2), y: minY - arrowHeight)
       
       let path = UIBezierPath()
       
       // Top left
-      path.move(to: startingPointLeft)
-      path.addLine(to: endingPointLeft)
+      path.move(to: startingPointTopLeft)
+      path.addLine(to: endingPointTopLeft)
       
       // Top right
-      path.move(to: startingPointRight)
-      path.addLine(to: endingPointRight)
+      path.move(to: startingPointTopRight)
+      path.addLine(to: endingPointTopRight)
       
       // Left side
       path.move(to: startingPointLeftSide)
@@ -127,42 +140,14 @@ class UIBalloonLabelArrowView: UIView,  BalloonLabelProtocol {
       // Right side
       path.move(to: startingPointRightSide)
       path.addLine(to: endingPointRightSide)
-
       
-      /*
-       let arrowSize = CGFloat(8.0);
-       
-       let startingPoint = CGPoint(x: rect.minX, y: rect.maxY)
-       let endingPoint = CGPoint(x: rect.maxX, y: rect.maxY)
-       
-       let topLeft = CGPoint(x: rect.minX, y: rect.minY)
-       
-       let topMiddleLeft = CGPoint(x: (rect.maxX / 2) - arrowSize, y: rect.minY)
-       let topMiddleRight = CGPoint(x: (rect.maxX / 2) + arrowSize, y: rect.minY)
-       
-       
-       let topRight = CGPoint(x: rect.maxX, y: rect.minY)
-       
-       
-       let path = UIBezierPath()
-       
-       // Top left
-       path.move(to: topLeft)
-       path.addLine(to: topMiddleLeft)
-       
-       // Arrow here / and \
-       path.move(to: topMiddleLeft)
-       path.addLine(to: CGPoint(x: (rect.maxX / 2) , y: rect.minY))
-       
-       // Top right
-       path.move(to: topMiddleRight)
-       path.addLine(to: topRight)
-       
-       
-       // Bottom
-       path.move(to: startingPoint)
-       path.addLine(to: endingPoint)
-       */
+      // Arrow left side
+      path.move(to: startingPointArrowLeft)
+      path.addLine(to: endingPointArrowLeft)
+      
+      // Arrow right side
+      path.move(to: startingPointArrowRight)
+      path.addLine(to: endingPointArrowRight)
       
       path.lineWidth = self.lineWidth
       
