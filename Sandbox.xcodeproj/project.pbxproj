@@ -13,6 +13,12 @@
 		E48DE8031DE4EFE100FD7932 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E48DE8021DE4EFE100FD7932 /* Assets.xcassets */; };
 		E48DE8061DE4EFE100FD7932 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E48DE8041DE4EFE100FD7932 /* LaunchScreen.storyboard */; };
 		E48DE80F1DE53B8000FD7932 /* AspectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48DE80E1DE53B8000FD7932 /* AspectViewController.swift */; };
+		E4D83E021DF881200058E641 /* ErrorTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D83E011DF881200058E641 /* ErrorTestViewController.swift */; };
+		E4D83E041DF884250058E641 /* UIBalloonLabelLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D83E031DF884250058E641 /* UIBalloonLabelLabel.swift */; };
+		E4D83E111DF99E580058E641 /* UIBalloonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D83E0F1DF99E580058E641 /* UIBalloonLabel.swift */; };
+		E4D83E121DF99E580058E641 /* UIBalloonLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4D83E101DF99E580058E641 /* UIBalloonLabel.xib */; };
+		E4D83E141DF9B5910058E641 /* BalloonLabelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D83E131DF9B5910058E641 /* BalloonLabelProtocol.swift */; };
+		E4D83E161DF9BA9A0058E641 /* UIBalloonLabelArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D83E151DF9BA9A0058E641 /* UIBalloonLabelArrowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		E48DE8051DE4EFE100FD7932 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E48DE8071DE4EFE100FD7932 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E48DE80E1DE53B8000FD7932 /* AspectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AspectViewController.swift; sourceTree = "<group>"; };
+		E4D83E011DF881200058E641 /* ErrorTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorTestViewController.swift; sourceTree = "<group>"; };
+		E4D83E031DF884250058E641 /* UIBalloonLabelLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBalloonLabelLabel.swift; sourceTree = "<group>"; };
+		E4D83E0F1DF99E580058E641 /* UIBalloonLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBalloonLabel.swift; sourceTree = "<group>"; };
+		E4D83E101DF99E580058E641 /* UIBalloonLabel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIBalloonLabel.xib; sourceTree = "<group>"; };
+		E4D83E131DF9B5910058E641 /* BalloonLabelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalloonLabelProtocol.swift; sourceTree = "<group>"; };
+		E4D83E151DF9BA9A0058E641 /* UIBalloonLabelArrowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBalloonLabelArrowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +68,45 @@
 		E48DE7FA1DE4EFE100FD7932 /* Sandbox */ = {
 			isa = PBXGroup;
 			children = (
+				E4D83E051DF999DD0058E641 /* UIBalloonLabel */,
 				E48DE7FB1DE4EFE100FD7932 /* AppDelegate.swift */,
-				E48DE7FD1DE4EFE100FD7932 /* ViewController.swift */,
-				E48DE7FF1DE4EFE100FD7932 /* Main.storyboard */,
+				E48DE8111DE5990900FD7932 /* Storyboards */,
 				E48DE8021DE4EFE100FD7932 /* Assets.xcassets */,
-				E48DE8041DE4EFE100FD7932 /* LaunchScreen.storyboard */,
 				E48DE8071DE4EFE100FD7932 /* Info.plist */,
-				E48DE80E1DE53B8000FD7932 /* AspectViewController.swift */,
 			);
 			path = Sandbox;
+			sourceTree = "<group>";
+		};
+		E48DE8111DE5990900FD7932 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				E48DE8121DE5993200FD7932 /* Main */,
+				E48DE8041DE4EFE100FD7932 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		E48DE8121DE5993200FD7932 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E48DE7FF1DE4EFE100FD7932 /* Main.storyboard */,
+				E48DE7FD1DE4EFE100FD7932 /* ViewController.swift */,
+				E48DE80E1DE53B8000FD7932 /* AspectViewController.swift */,
+				E4D83E011DF881200058E641 /* ErrorTestViewController.swift */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		E4D83E051DF999DD0058E641 /* UIBalloonLabel */ = {
+			isa = PBXGroup;
+			children = (
+				E4D83E131DF9B5910058E641 /* BalloonLabelProtocol.swift */,
+				E4D83E0F1DF99E580058E641 /* UIBalloonLabel.swift */,
+				E4D83E031DF884250058E641 /* UIBalloonLabelLabel.swift */,
+				E4D83E151DF9BA9A0058E641 /* UIBalloonLabelArrowView.swift */,
+				E4D83E101DF99E580058E641 /* UIBalloonLabel.xib */,
+			);
+			name = UIBalloonLabel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +168,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4D83E121DF99E580058E641 /* UIBalloonLabel.xib in Resources */,
 				E48DE8061DE4EFE100FD7932 /* LaunchScreen.storyboard in Resources */,
 				E48DE8031DE4EFE100FD7932 /* Assets.xcassets in Resources */,
 				E48DE8011DE4EFE100FD7932 /* Main.storyboard in Resources */,
@@ -139,7 +182,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4D83E111DF99E580058E641 /* UIBalloonLabel.swift in Sources */,
 				E48DE80F1DE53B8000FD7932 /* AspectViewController.swift in Sources */,
+				E4D83E141DF9B5910058E641 /* BalloonLabelProtocol.swift in Sources */,
+				E4D83E161DF9BA9A0058E641 /* UIBalloonLabelArrowView.swift in Sources */,
+				E4D83E021DF881200058E641 /* ErrorTestViewController.swift in Sources */,
+				E4D83E041DF884250058E641 /* UIBalloonLabelLabel.swift in Sources */,
 				E48DE7FE1DE4EFE100FD7932 /* ViewController.swift in Sources */,
 				E48DE7FC1DE4EFE100FD7932 /* AppDelegate.swift in Sources */,
 			);
@@ -303,6 +351,7 @@
 				E48DE80C1DE4EFE100FD7932 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
