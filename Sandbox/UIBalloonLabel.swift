@@ -114,11 +114,11 @@ import UIKit
       }
    }
    
-   override public func draw(_ rect: CGRect) {
+   override open func draw(_ rect: CGRect) {
       super.draw(rect)
-      drawBorder(rect: rect)
+      drawBorder(rect)
    }
    
-   func drawBorder(rect: CGRect) {
+   func drawBorder(_ rect: CGRect) {
    }
 }

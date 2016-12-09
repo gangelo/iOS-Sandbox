@@ -34,7 +34,7 @@ protocol BalloonLabelProtocol {
    //    drawBorder(rect: rect)
    // }
    //
-   func drawBorder(rect: CGRect)
+   func drawBorder(_ rect: CGRect)
 }
 
 extension BalloonLabelProtocol {

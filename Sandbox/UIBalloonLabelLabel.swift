@@ -95,12 +95,12 @@ class UIBalloonLabelLabel: UILabel,  BalloonLabelProtocol {
       }
    }
    
-   override public func draw(_ rect: CGRect) {
+   override open func draw(_ rect: CGRect) {
       super.draw(rect)
-      drawBorder(rect: rect)
+      drawBorder(rect)
    }
 
-   func drawBorder(rect: CGRect) {
+   func drawBorder(_ rect: CGRect) {
       /*
       let startingPointLeft = CGPoint(x: rect.minX, y: rect.minY)
       let endingPointLeft = CGPoint(x: rect.minX, y: rect.maxY)

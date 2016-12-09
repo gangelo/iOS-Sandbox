@@ -102,14 +102,14 @@
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By signing up, you agree to the Terms of Service and Privacy Policy, including Cookie Use." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ah-4k-uem">
-                                        <rect key="frame" x="8" y="159" width="343" height="65"/>
+                                        <rect key="frame" x="8" y="159" width="343" height="64.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rQN-aS-vT8" customClass="UIDefaultOrangeButton" customModule="Sandbox" customModuleProvider="target">
-                                        <rect key="frame" x="319" y="257" width="32" height="30"/>
+                                        <rect key="frame" x="319" y="256.5" width="32" height="30"/>
                                         <state key="normal" title="Next"/>
                                         <connections>
                                             <segue destination="NNS-ba-Une" kind="show" id="Sv1-iE-aWs"/>
@@ -165,7 +165,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your email?" textAlignment="natural" lineBreakMode="tailTruncation" minimumScaleFactor="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="ce8-cF-9kZ">
-                                        <rect key="frame" x="8" y="82" width="359" height="34"/>
+                                        <rect key="frame" x="8" y="82" width="359" height="33.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ce8-cF-9kZ" secondAttribute="height" multiplier="32:3" id="Fmz-cR-x9g"/>
                                         </constraints>
@@ -174,7 +174,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We won't send you spam." textAlignment="natural" lineBreakMode="tailTruncation" minimumScaleFactor="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="B9k-j5-mT9">
-                                        <rect key="frame" x="8" y="130" width="359" height="42"/>
+                                        <rect key="frame" x="8" y="129.5" width="359" height="42.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="46" id="fcs-FH-XUn"/>
                                             <constraint firstAttribute="width" secondItem="B9k-j5-mT9" secondAttribute="height" multiplier="76:9" id="i1f-Mz-qsv"/>
@@ -192,7 +192,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pRC-jx-7WZ">
-                                        <rect key="frame" x="8" y="207" width="359" height="43"/>
+                                        <rect key="frame" x="8" y="207" width="359" height="42.5"/>
                                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="pRC-jx-7WZ" secondAttribute="height" multiplier="76:9" id="biz-y5-TtN"/>

@@ -36,6 +36,7 @@
 		E4D83E101DF99E580058E641 /* UIBalloonLabel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIBalloonLabel.xib; sourceTree = "<group>"; };
 		E4D83E131DF9B5910058E641 /* BalloonLabelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalloonLabelProtocol.swift; sourceTree = "<group>"; };
 		E4D83E151DF9BA9A0058E641 /* UIBalloonLabelArrowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBalloonLabelArrowView.swift; sourceTree = "<group>"; };
+		E4D83E1C1DFB54340058E641 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground.playground; path = Playground/MyPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +69,7 @@
 		E48DE7FA1DE4EFE100FD7932 /* Sandbox */ = {
 			isa = PBXGroup;
 			children = (
+				E4D83E1B1DFB53C70058E641 /* Playground */,
 				E4D83E051DF999DD0058E641 /* UIBalloonLabel */,
 				E48DE7FB1DE4EFE100FD7932 /* AppDelegate.swift */,
 				E48DE8111DE5990900FD7932 /* Storyboards */,
@@ -109,6 +111,14 @@
 			name = UIBalloonLabel;
 			sourceTree = "<group>";
 		};
+		E4D83E1B1DFB53C70058E641 /* Playground */ = {
+			isa = PBXGroup;
+			children = (
+				E4D83E1C1DFB54340058E641 /* MyPlayground.playground */,
+			);
+			name = Playground;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -141,6 +151,7 @@
 				TargetAttributes = {
 					E48DE7F71DE4EFE100FD7932 = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 				};

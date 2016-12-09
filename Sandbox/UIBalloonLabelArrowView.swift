@@ -87,12 +87,25 @@ class UIBalloonLabelArrowView: UIView,  BalloonLabelProtocol {
       }
    }
    
-   override public func draw(_ rect: CGRect) {
-      super.draw(rect)
-      drawBorder(rect: rect)
+   @IBInspectable var cornerRadius: CGFloat = 0 {
+      didSet {
+         layer.cornerRadius = cornerRadius
+         layer.masksToBounds = cornerRadius > 0
+      }
    }
    
-   func drawBorder(rect: CGRect) {
+   @IBInspectable var borderWidth: CGFloat = 0 {
+      didSet {
+         layer.borderWidth = borderWidth
+      }
+   }
+   
+   override open func draw(_ rect: CGRect) {
+      super.draw(rect)
+      drawBorder(rect)
+   }
+   
+   func drawBorder(_ rect: CGRect) {
       let minX: CGFloat = rect.minX
       let maxX: CGFloat = rect.maxX
       
