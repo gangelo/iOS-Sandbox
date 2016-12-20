@@ -16,11 +16,12 @@ import Foundation
    fileprivate var _arrowSize:CGSize = CGSize.zero
    fileprivate var _balloonBackgroundColor:UIColor = UIColor.white
    
-   convenience init(frame:CGRect, cornerRadius:Int, lineWidth:CGFloat, strokeColor:UIColor, balloonBackgroundColor:UIColor) {
+   convenience init(frame:CGRect, cornerRadius:Int, lineWidth:CGFloat, arrowSize:CGSize, strokeColor:UIColor, balloonBackgroundColor:UIColor) {
       self.init(frame: frame)
       
       self._cornerRadius = cornerRadius
       self._lineWidth = lineWidth
+      self._arrowSize = arrowSize
       self._strokeColor = strokeColor
       self._balloonBackgroundColor = balloonBackgroundColor
       
@@ -109,6 +110,9 @@ import Foundation
    override func draw(_ rect: CGRect) {
       let adjustedRect = getAdjustedBorderRect(rect: rect)
       
+      print(rect)
+      print(adjustedRect)
+      
       // Box
       self._strokeColor.setStroke()
       self._balloonBackgroundColor.setFill()
@@ -156,6 +160,10 @@ import Foundation
       path.addLine(to: CGPoint(x: (adjustedRect.size.width / 2), y: adjustedRect.origin.y - self.arrowSize.height))
       
       path.lineWidth = self.lineWidth
+      
+      path.close()
+      
+      path.fill()
       
       path.stroke()
    }

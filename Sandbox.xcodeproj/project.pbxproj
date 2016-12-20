@@ -54,8 +54,8 @@
 			isa = PBXGroup;
 			children = (
 				E44917C51E042FBA00D77171 /* UIBalloonTextField.swift */,
-				E4612CC21DFCC60F0065290E /* UIBalloon.swift */,
 				E4612CC41DFCC7210065290E /* UIErrorBalloon.swift */,
+				E4612CC21DFCC60F0065290E /* UIBalloon.swift */,
 				E44917C21E03304900D77171 /* UIBalloonLabel.swift */,
 				E4F7CA761E04872B0038429F /* BalloonProtocol.swift */,
 			);
