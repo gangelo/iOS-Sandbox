@@ -4,6 +4,7 @@ import UIKit
 import XCPlayground
 import PlaygroundSupport
 
+/*
 class Shape : UIView {
    var color:UIColor
    
@@ -51,8 +52,33 @@ class Circle : Shape {
       return (Double(M_PI * power))
    }
 }
+*/
 
-class Corner: Shape {
+class Shape : UIView {
+   var color:UIColor
+   
+   init(color:UIColor) {
+      self.color = color
+      super.init(frame: CGRect.zero)
+      self.backgroundColor = color
+      setFrameSize()
+   }
+   
+   required init?(coder aDecoder: NSCoder) {
+      fatalError("init(coder:) has not been implemented")
+   }
+   
+   func setFrameSize() {
+      self.frame.size = CGSize.zero
+   }
+   
+   func getArea() -> Double {
+      return 0;
+   }
+}
+
+
+class UIBalloon: Shape {
    fileprivate var size:CGSize
    fileprivate var cornerRadius:Int
    fileprivate var lineWidth:CGFloat
@@ -67,8 +93,6 @@ class Corner: Shape {
       self.strokeColor = strokeColor
       
       super.init(color: backgroundColor)
-      
-      //self.layer.cornerRadius = CGFloat(radius)
    }
    
    required init?(coder aDecoder: NSCoder) {
@@ -76,7 +100,6 @@ class Corner: Shape {
    }
    
    override func setFrameSize() {
-      //self.size.height += self.arrowWidth
       self.frame.size = self.size
    }
    
@@ -95,48 +118,38 @@ class Corner: Shape {
       let adjustedRect = getAdjustedBorderRect(rect: rect)
       
       // Box
-      var path = UIBezierPath(roundedRect: adjustedRect, byRoundingCorners: .allCorners, cornerRadii: CGSize(width: self.cornerRadius, height: self.cornerRadius))
-      
-      path.lineWidth = self.lineWidth
-      
-      
       self.strokeColor.setStroke()
+      
+      var path = UIBezierPath(roundedRect: adjustedRect, byRoundingCorners: .allCorners, cornerRadii: CGSize(width: self.cornerRadius, height: self.cornerRadius))
+      path.lineWidth = self.lineWidth
       path.stroke()
       
-      //path.close()
       
       // Erase
-      path = UIBezierPath()
-      
-      path.lineWidth = self.lineWidth
-      
-      
-      path.move(to: CGPoint(x: (self.size.width / 2) - (self.arrowSize.width / 2), y: self.lineWidth))
-      path.addLine(to: CGPoint(x: (self.size.width / 2) + (self.arrowSize.width / 2), y: self.lineWidth))
-      
       self.backgroundColor?.setStroke()
       
+      path = UIBezierPath()
+      path.move(to: CGPoint(x: (self.size.width / 2) - (self.arrowSize.width / 2), y: self.lineWidth))
+      path.addLine(to: CGPoint(x: (self.size.width / 2) + (self.arrowSize.width / 2), y: self.lineWidth))
+      path.lineWidth = self.lineWidth
       path.stroke()
       
       // Arrow
-      path = UIBezierPath()
+      self.backgroundColor?.setStroke()
       
-      path.lineWidth = self.lineWidth
+      path = UIBezierPath()
       
       // Erase the portion of the balloon where the base of the arrow will go
       path.move(to: CGPoint(x: (adjustedRect.size.width / 2) - (self.arrowSize.width / 2), y: adjustedRect.origin.y))
       path.addLine(to: CGPoint(x: (adjustedRect.size.width / 2) + (self.arrowSize.width / 2), y: adjustedRect.origin.y))
-      
-      self.backgroundColor?.setStroke()
-      
+      path.lineWidth = self.lineWidth * 2
       path.stroke()
       
+      
       // Draw the arrow point
-      path = UIBezierPath()
-      
-      path.lineWidth = self.lineWidth
-      
       self.strokeColor.setStroke()
+      
+      path = UIBezierPath()
       
       // Arrow left side
       path.move(to: CGPoint(x: (adjustedRect.size.width / 2) - (self.arrowSize.width / 2), y: adjustedRect.origin.y))
@@ -146,6 +159,7 @@ class Corner: Shape {
       path.move(to: CGPoint(x: (adjustedRect.size.width / 2) + (self.arrowSize.width / 2), y: adjustedRect.origin.y))
       path.addLine(to: CGPoint(x: (adjustedRect.size.width / 2), y: adjustedRect.origin.y - self.arrowSize.height))
       
+      path.lineWidth = self.lineWidth
       
       path.stroke()
    }
@@ -156,13 +170,9 @@ let view = UIView(frame: CGRect(x: 0, y: 0, width: 640, height: 640))
 view.backgroundColor = UIColor.white
 PlaygroundPage.current.liveView = view
 
-//var circle = Circle(radius: 50, color: UIColor.blue)
-//circle.center = CGPoint(x: 100, y: 100)
+let balloon = UIBalloon(size: CGSize(width: 225, height: 45), cornerRadius: 5, lineWidth: 1.0, backgroundColor: UIColor.white, strokeColor: UIColor.red)
+balloon.center = CGPoint(x: 320.0, y: 320.0)
 
-//view.addSubview(circle)
+view.addSubview(balloon)
 
 
-let corner = Corner(size: CGSize(width: 225, height: 45), cornerRadius: 8, lineWidth: 2.0, backgroundColor: UIColor.white, strokeColor: UIColor.red)
-corner.center = CGPoint(x: 320.0, y: 320.0)
-
-view.addSubview(corner)
