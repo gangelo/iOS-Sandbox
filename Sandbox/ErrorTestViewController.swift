@@ -28,6 +28,7 @@ class ErrorTestViewController: ViewController {
       self._errorMessages.append("Short error message")
       self._errorMessages.append("Medium error message XXX XXX XXX")
       self._errorMessages.append("Long error message XXX XXX XXX XXX XXX XXX XXX XXX XXX")
+      self._errorMessages.append("Longer error message X X X X X X X X X X X X X X X X X X X X X X X X X X X")
    }
    
    override func didReceiveMemoryWarning() {

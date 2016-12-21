@@ -10,9 +10,12 @@ import UIKit
 import Foundation
 
 protocol BalloonProtocol {
+   var balloonTextColor:UIColor { get set }
+   var balloonFontSize:CGFloat { get set }
    var balloonBackgroundColor:UIColor { get set }
    var balloonCornerRadius:Int { get set }
    var balloonBorderWidth:CGFloat { get set }
    var balloonBorderColor:UIColor { get set }
    var balloonArrowSize:CGSize { get set }
+   var balloonArrowPosition:BalloonArrowPosition { get set }
 }

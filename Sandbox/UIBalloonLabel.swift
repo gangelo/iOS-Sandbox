@@ -22,6 +22,15 @@ class UIBalloonLabel: UILabel {
       self.initialize()
    }
    
+   init(frame: CGRect, textColor:UIColor, fontSize:CGFloat) {
+      super.init(frame: frame)
+      
+      self.font = self.font.withSize(fontSize)
+      self.textColor = textColor
+      
+      self.initialize()
+   }
+   
    func initialize() {
       self.numberOfLines = 0
       self.lineBreakMode = .byWordWrapping
@@ -32,7 +41,7 @@ class UIBalloonLabel: UILabel {
          if text != nil {
             self.sizeToFit()
             if let balloonView = self.superview {
-               if let view:UIBalloon = balloonView as? UIBalloon {
+               if let view:UIBalloonBase = balloonView as? UIBalloonBase {
                   view.resizeToFitSubviews()
                }
             }

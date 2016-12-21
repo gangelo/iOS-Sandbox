@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-@IBDesignable class UIErrorBalloon: UIBalloon {
+class UIErrorBalloon: UIBalloonDefault {
    
    override init(frame: CGRect) {
       super.init(frame: frame)
@@ -25,6 +25,13 @@ import Foundation
    
    internal override func initialize() {
       super.initialize()
-      self.balloonBorderColor = UIColor(hex: 0xcc0000)
+      
+      let red = UIColor(hex: 0xcc0000)
+      
+      self.balloonBorderColor = red
+      self.balloonTextColor = UIColor(hex: 0xeeeeee)
+      self.balloonBackgroundColor = red
+      self.balloonBorderColor = red
+      self.balloonArrowPosition = BalloonArrowPosition.right
    }
 }

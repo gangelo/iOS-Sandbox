@@ -1,5 +1,5 @@
 //
-//  UIBalloon.swift
+//  UIBalloonBase.swift
 //  Accumoo
 //
 //  Created by Gene M. Angelo  Jr. on 12/10/16.
@@ -9,21 +9,27 @@
 import UIKit
 import Foundation
 
-@IBDesignable class UIBalloon: UIView, BalloonProtocol {
+class UIBalloonBase: UIView, BalloonProtocol {
+   fileprivate var _balloonTextColor:UIColor = UIColor.black
+   fileprivate var _balloonFontSize:CGFloat = 10.0
+   fileprivate var _balloonBackgroundColor:UIColor = UIColor.clear
    fileprivate var _balloonCornerRadius:Int = 0
    fileprivate var _balloonBorderWidth:CGFloat = 1
    fileprivate var _balloonBorderColor:UIColor = UIColor.black
    fileprivate var _balloonArrowSize:CGSize = CGSize(width: 0, height: 0)
-   fileprivate var _balloonBackgroundColor:UIColor = UIColor.clear
+   fileprivate var _balloonArrowPosition = BalloonArrowPosition.center
    
-   convenience init(frame:CGRect, balloonCornerRadius:Int, balloonBorderWidth:CGFloat, balloonArrowSize:CGSize, balloonBorderColor:UIColor, balloonBackgroundColor:UIColor) {
+   convenience init(frame:CGRect, balloonTextColor:UIColor, balloonFontSize:CGFloat, balloonBackgroundColor:UIColor, balloonCornerRadius:Int, balloonBorderWidth:CGFloat, balloonBorderColor:UIColor, balloonArrowSize:CGSize, balloonArrowPosition:BalloonArrowPosition) {
       self.init(frame: frame)
       
+      self._balloonTextColor = balloonTextColor
+      self._balloonFontSize = balloonFontSize
+      self._balloonBackgroundColor = balloonBackgroundColor
       self._balloonCornerRadius = balloonCornerRadius
       self._balloonBorderWidth = balloonBorderWidth
-      self._balloonArrowSize = balloonArrowSize
       self._balloonBorderColor = balloonBorderColor
-      self.balloonBackgroundColor = balloonBackgroundColor
+      self._balloonArrowSize = balloonArrowSize
+      self._balloonArrowPosition = balloonArrowPosition
       
       self.initialize()
    }
@@ -43,7 +49,34 @@ import Foundation
    
    // MARK: - BalloonProtocol - start
    
-   @IBInspectable var balloonCornerRadius:Int {
+   var balloonTextColor:UIColor {
+      get {
+         return self._balloonTextColor
+      }
+      set {
+         self._balloonTextColor = newValue
+      }
+   }
+   
+   var balloonFontSize: CGFloat {
+      get {
+         return self._balloonFontSize
+      }
+      set {
+         self._balloonFontSize = newValue
+      }
+   }
+   
+   var balloonBackgroundColor:UIColor {
+      get {
+         return self._balloonBackgroundColor
+      }
+      set {
+         self._balloonBackgroundColor = newValue
+      }
+   }
+   
+   var balloonCornerRadius:Int {
       get {
          return self._balloonCornerRadius
       }
@@ -52,7 +85,7 @@ import Foundation
       }
    }
    
-   @IBInspectable var balloonBorderWidth:CGFloat {
+   var balloonBorderWidth:CGFloat {
       get {
          return self._balloonBorderWidth
       }
@@ -61,7 +94,7 @@ import Foundation
       }
    }
    
-   @IBInspectable var balloonBorderColor:UIColor {
+   var balloonBorderColor:UIColor {
       get {
          return self._balloonBorderColor
       }
@@ -70,7 +103,7 @@ import Foundation
       }
    }
    
-   @IBInspectable var balloonArrowSize:CGSize {
+   var balloonArrowSize:CGSize {
       get {
          return self._balloonArrowSize
       }
@@ -79,12 +112,12 @@ import Foundation
       }
    }
    
-   @IBInspectable var balloonBackgroundColor:UIColor {
+   var balloonArrowPosition: BalloonArrowPosition {
       get {
-         return self._balloonBackgroundColor
+         return self._balloonArrowPosition
       }
       set {
-         self._balloonBackgroundColor = newValue
+         self._balloonArrowPosition = newValue
       }
    }
    
@@ -96,6 +129,9 @@ import Foundation
       balloonLabel.text = ""
    }
    
+   // This function amends the working rect to exclude the portion of the
+   // normal rect needed to display the balloon arrow. We need to know this 
+   // so that we know how to center our message text vertically inside the balloon.
    fileprivate func getAdjustedBorderRect(rect: CGRect) -> CGRect {
       var adjustedRect = CGRect(origin: CGPoint(x: rect.origin.x, y: rect.origin.y), size: CGSize(width: rect.width, height: rect.height))
       
