@@ -10,20 +10,20 @@ import UIKit
 import Foundation
 
 @IBDesignable class UIBalloon: UIView, BalloonProtocol {
-   fileprivate var _cornerRadius:Int = 0
-   fileprivate var _lineWidth:CGFloat = 0.0
-   fileprivate var _strokeColor:UIColor = UIColor.black
-   fileprivate var _arrowSize:CGSize = CGSize.zero
-   fileprivate var _balloonBackgroundColor:UIColor = UIColor.white
+   fileprivate var _balloonCornerRadius:Int = 0
+   fileprivate var _balloonBorderWidth:CGFloat = 1
+   fileprivate var _balloonBorderColor:UIColor = UIColor.black
+   fileprivate var _balloonArrowSize:CGSize = CGSize(width: 0, height: 0)
+   fileprivate var _balloonBackgroundColor:UIColor = UIColor.clear
    
-   convenience init(frame:CGRect, cornerRadius:Int, lineWidth:CGFloat, arrowSize:CGSize, strokeColor:UIColor, balloonBackgroundColor:UIColor) {
+   convenience init(frame:CGRect, balloonCornerRadius:Int, balloonBorderWidth:CGFloat, balloonArrowSize:CGSize, balloonBorderColor:UIColor, balloonBackgroundColor:UIColor) {
       self.init(frame: frame)
       
-      self._cornerRadius = cornerRadius
-      self._lineWidth = lineWidth
-      self._arrowSize = arrowSize
-      self._strokeColor = strokeColor
-      self._balloonBackgroundColor = balloonBackgroundColor
+      self._balloonCornerRadius = balloonCornerRadius
+      self._balloonBorderWidth = balloonBorderWidth
+      self._balloonArrowSize = balloonArrowSize
+      self._balloonBorderColor = balloonBorderColor
+      self.balloonBackgroundColor = balloonBackgroundColor
       
       self.initialize()
    }
@@ -43,39 +43,39 @@ import Foundation
    
    // MARK: - BalloonProtocol - start
    
-   @IBInspectable var cornerRadius:Int {
+   @IBInspectable var balloonCornerRadius:Int {
       get {
-         return self._cornerRadius
+         return self._balloonCornerRadius
       }
       set {
-         self._cornerRadius = newValue
+         self._balloonCornerRadius = newValue
       }
    }
    
-   @IBInspectable var lineWidth:CGFloat {
+   @IBInspectable var balloonBorderWidth:CGFloat {
       get {
-         return self._lineWidth
+         return self._balloonBorderWidth
       }
       set {
-         self._lineWidth = newValue
+         self._balloonBorderWidth = newValue
       }
    }
    
-   @IBInspectable var strokeColor:UIColor {
+   @IBInspectable var balloonBorderColor:UIColor {
       get {
-         return self._strokeColor
+         return self._balloonBorderColor
       }
       set {
-         self._strokeColor = newValue
+         self._balloonBorderColor = newValue
       }
    }
    
-   @IBInspectable var arrowSize:CGSize {
+   @IBInspectable var balloonArrowSize:CGSize {
       get {
-         return self._arrowSize
+         return self._balloonArrowSize
       }
       set {
-         self._arrowSize = newValue
+         self._balloonArrowSize = newValue
       }
    }
    
@@ -99,10 +99,10 @@ import Foundation
    fileprivate func getAdjustedBorderRect(rect: CGRect) -> CGRect {
       var adjustedRect = CGRect(origin: CGPoint(x: rect.origin.x, y: rect.origin.y), size: CGSize(width: rect.width, height: rect.height))
       
-      adjustedRect.origin.x = self._lineWidth
-      adjustedRect.origin.y = self._lineWidth + self._arrowSize.height
-      adjustedRect.size.width = (frame.size.width - (self._lineWidth * 2))
-      adjustedRect.size.height = (frame.size.height - (self._lineWidth * 2)) - self._arrowSize.height
+      adjustedRect.origin.x = self._balloonBorderWidth
+      adjustedRect.origin.y = self._balloonBorderWidth + self._balloonArrowSize.height
+      adjustedRect.size.width = (frame.size.width - (self._balloonBorderWidth * 2))
+      adjustedRect.size.height = (frame.size.height - (self._balloonBorderWidth * 2)) - self._balloonArrowSize.height
       
       return adjustedRect
    }
@@ -114,65 +114,34 @@ import Foundation
       print(adjustedRect)
       
       // Box
-      self._strokeColor.setStroke()
-      self._balloonBackgroundColor.setFill()
+      self.balloonBorderColor.setStroke()
+      self.balloonBackgroundColor.setFill()
       
-      var path = UIBezierPath(roundedRect: adjustedRect, byRoundingCorners: .allCorners, cornerRadii: CGSize(width: self._cornerRadius, height: self._cornerRadius))
-      path.lineWidth = self._lineWidth
-      
+      var path = UIBezierPath(roundedRect: adjustedRect, byRoundingCorners: .allCorners, cornerRadii: CGSize(width: self.balloonCornerRadius, height: self.balloonCornerRadius))
+      path.lineWidth = self.balloonBorderWidth
       path.fill()
-      
-      path.stroke()
-      
-      
-      // Erase
-      self.backgroundColor?.setStroke()
-      
-      path = UIBezierPath()
-      path.move(to: CGPoint(x: (self.frame.size.width / 2) - (self.arrowSize.width / 2), y: self.lineWidth))
-      path.addLine(to: CGPoint(x: (self.frame.size.width / 2) + (self.arrowSize.width / 2), y: self.lineWidth))
-      path.lineWidth = self.lineWidth
       path.stroke()
       
       // Arrow
-      self.backgroundColor?.setStroke()
+      self.balloonBorderColor.setStroke()
+      self.balloonBackgroundColor.setFill()
       
       path = UIBezierPath()
-      
-      // Erase the portion of the balloon where the base of the arrow will go
-      path.move(to: CGPoint(x: (adjustedRect.size.width / 2) - (self.arrowSize.width / 2), y: adjustedRect.origin.y))
-      path.addLine(to: CGPoint(x: (adjustedRect.size.width / 2) + (self.arrowSize.width / 2), y: adjustedRect.origin.y))
-      path.lineWidth = self.lineWidth * 2
-      path.stroke()
-      
-      
-      // Draw the arrow point
-      self.strokeColor.setStroke()
-      
-      path = UIBezierPath()
-      
-      // Arrow left side
-      path.move(to: CGPoint(x: (adjustedRect.size.width / 2) - (self.arrowSize.width / 2), y: adjustedRect.origin.y))
-      path.addLine(to: CGPoint(x: (adjustedRect.size.width / 2), y: adjustedRect.origin.y - self.arrowSize.height))
-      
-      // Arrow right side
-      path.move(to: CGPoint(x: (adjustedRect.size.width / 2) + (self.arrowSize.width / 2), y: adjustedRect.origin.y))
-      path.addLine(to: CGPoint(x: (adjustedRect.size.width / 2), y: adjustedRect.origin.y - self.arrowSize.height))
-      
-      path.lineWidth = self.lineWidth
+      path.move(to: CGPoint(x: (adjustedRect.size.width / 2) - (self.balloonArrowSize.width / 2), y: adjustedRect.origin.y))
+      path.addLine(to: CGPoint(x: (adjustedRect.size.width / 2), y: adjustedRect.origin.y - self.balloonArrowSize.height))
+      path.addLine(to: CGPoint(x: (adjustedRect.size.width / 2) + (self.balloonArrowSize.width / 2), y: adjustedRect.origin.y))
       
       path.close()
-      
-      path.fill()
-      
+      path.lineWidth = self.balloonBorderWidth
       path.stroke()
+      path.fill()
    }
    
    func resizeToFitSubviews() {
       let balloonLabel = self.subviews.first as! UIBalloonLabel
       let balloonLabelHeight: CGFloat = balloonLabel.frame.height
       
-      let newBalloonHeight = balloonLabelHeight + (self.arrowSize.height + self.layoutMargins.top + self.layoutMargins.bottom)
+      let newBalloonHeight = balloonLabelHeight + (self.balloonArrowSize.height + self.layoutMargins.top + self.layoutMargins.bottom)
       
       self.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y, width: self.frame.width, height: newBalloonHeight)
       

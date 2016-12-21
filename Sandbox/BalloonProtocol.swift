@@ -11,8 +11,8 @@ import Foundation
 
 protocol BalloonProtocol {
    var balloonBackgroundColor:UIColor { get set }
-   var cornerRadius:Int { get set }
-   var lineWidth:CGFloat { get set }
-   var strokeColor:UIColor { get set }
-   var arrowSize:CGSize { get set }
+   var balloonCornerRadius:Int { get set }
+   var balloonBorderWidth:CGFloat { get set }
+   var balloonBorderColor:UIColor { get set }
+   var balloonArrowSize:CGSize { get set }
 }

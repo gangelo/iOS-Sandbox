@@ -7,10 +7,10 @@
 import UIKit
 
 @IBDesignable public class UIBalloonTextField : UITextField, BalloonProtocol {
-   fileprivate var _cornerRadius:Int = 5
-   fileprivate var _lineWidth:CGFloat = 0.5
-   fileprivate var _strokeColor:UIColor = UIColor.red
-   fileprivate var _arrowSize:CGSize = CGSize(width: 16.0, height: 16.0)
+   fileprivate var _balloonCornerRadius:Int = 5
+   fileprivate var _balloonBorderWidth:CGFloat = 0.5
+   fileprivate var _balloonBorderColor:UIColor = UIColor.black
+   fileprivate var _balloonArrowSize:CGSize = CGSize(width: 16.0, height: 16.0)
    fileprivate var _balloonBackgroundColor:UIColor = UIColor.white
    
    fileprivate var _errorView:UIView?
@@ -54,16 +54,16 @@ import UIKit
       //
       // let balloonFrame = self.frame.offsetBy(dx: 0, dy: self.frame.height + 1)
       
-      let balloonFrame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y + self.frame.height + 1, width: self.frame.width, height: self.frame.height + self.arrowSize.height)
+      let balloonFrame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y + self.frame.height + 1, width: self.frame.width, height: self.frame.height + self.balloonArrowSize.height)
  
-      let errorBalloon = UIErrorBalloon(frame: balloonFrame, cornerRadius: self.cornerRadius, lineWidth: self.lineWidth, arrowSize: self.arrowSize, strokeColor: self.strokeColor, balloonBackgroundColor: self._balloonBackgroundColor)
+      let errorBalloon = UIErrorBalloon(frame: balloonFrame, balloonCornerRadius: self.balloonCornerRadius, balloonBorderWidth: self.balloonBorderWidth, balloonArrowSize: self.balloonArrowSize, balloonBorderColor: self.balloonBorderColor, balloonBackgroundColor: self.balloonBackgroundColor)
       // This sets the color behind the balloon, so that the actuall balloon can be seen 
       // propoerly against the control background.
       errorBalloon.backgroundColor = self.superview?.backgroundColor
       
       //
-      errorBalloon.layer.borderColor = UIColor.green.cgColor
-      errorBalloon.layer.borderWidth = 1.0
+      //errorBalloon.layer.borderColor = UIColor.green.cgColor
+      //errorBalloon.layer.borderWidth = 1.0
       
       // Add the error balloon to the superview.
       self.superview?.addSubview(errorBalloon)
@@ -72,11 +72,11 @@ import UIKit
       // Create the error label that is used to display the error message inside
       // the balloon.
       var labelFrame = self.frame.offsetBy(dx: 0, dy: self.frame.height)
-      labelFrame.origin.y = labelFrame.origin.y + self.arrowSize.height
+      labelFrame.origin.y = labelFrame.origin.y + self.balloonArrowSize.height
 
       let errorLabel = UIBalloonLabel(frame: labelFrame)
-      errorLabel.layer.borderColor = UIColor.brown.cgColor
-      errorLabel.layer.borderWidth = 1.0
+      //errorLabel.layer.borderColor = UIColor.brown.cgColor
+      //errorLabel.layer.borderWidth = 1.0
       // TODO: Make font size dynamic.
       errorLabel.font = errorLabel.font.withSize(10.0)
       errorBalloon.addSubview(errorLabel)
@@ -88,9 +88,9 @@ import UIKit
    
    func setErrorLabelConstraints(errorLabel:UIBalloonLabel, errorBalloon:UIErrorBalloon) {
       let margin:CGFloat = 8
-      let topMargin = self.arrowSize.height
-      
       /*
+      let topMargin = self.balloonArrowSize.height
+      
       // Leading...
       let leading = NSLayoutConstraint(item: errorLabel, attribute: .leading, relatedBy: .equal, toItem: errorBalloon, attribute: .leading, multiplier: 1, constant: margin)
       
@@ -130,7 +130,7 @@ import UIKit
    func setErrorBalloonConstraints(errorBalloon:UIErrorBalloon) {
       let margin:CGFloat = 8
       
-      errorBalloon.layoutMargins.top = self.arrowSize.height
+      errorBalloon.layoutMargins.top = self.balloonArrowSize.height
       errorBalloon.layoutMargins.bottom = 8
       errorBalloon.layoutMargins.left = 8
       errorBalloon.layoutMargins.right = 8
@@ -169,39 +169,39 @@ import UIKit
    
    // MARK: - BalloonProtocol - start
    
-   @IBInspectable var cornerRadius:Int {
+   @IBInspectable var balloonCornerRadius:Int {
       get {
-         return self._cornerRadius
+         return self._balloonCornerRadius
       }
       set {
-         self._cornerRadius = newValue
+         self._balloonCornerRadius = newValue
       }
    }
    
-   @IBInspectable var lineWidth:CGFloat {
+   @IBInspectable var balloonBorderWidth:CGFloat {
       get {
-         return self._lineWidth
+         return self._balloonBorderWidth
       }
       set {
-         self._lineWidth = newValue
+         self._balloonBorderWidth = newValue
       }
    }
    
-   @IBInspectable var strokeColor:UIColor {
+   @IBInspectable var balloonBorderColor:UIColor {
       get {
-         return self._strokeColor
+         return self._balloonBorderColor
       }
       set {
-         self._strokeColor = newValue
+         self._balloonBorderColor = newValue
       }
    }
    
-   @IBInspectable var arrowSize:CGSize {
+   @IBInspectable var balloonArrowSize:CGSize {
       get {
-         return self._arrowSize
+         return self._balloonArrowSize
       }
       set {
-         self._arrowSize = newValue
+         self._balloonArrowSize = newValue
       }
    }
    

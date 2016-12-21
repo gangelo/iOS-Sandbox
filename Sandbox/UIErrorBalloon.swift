@@ -25,6 +25,6 @@ import Foundation
    
    internal override func initialize() {
       super.initialize()
-      self.strokeColor = UIColor.red
+      self.balloonBorderColor = UIColor(hex: 0xcc0000)
    }
 }

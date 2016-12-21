@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E41716461E0ABFC7002E5A4A /* UIColor+init.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41716451E0ABFC7002E5A4A /* UIColor+init.swift */; };
 		E44917C31E03304900D77171 /* UIBalloonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44917C21E03304900D77171 /* UIBalloonLabel.swift */; };
 		E44917C61E042FBA00D77171 /* UIBalloonTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44917C51E042FBA00D77171 /* UIBalloonTextField.swift */; };
 		E4612CC31DFCC60F0065290E /* UIBalloon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4612CC21DFCC60F0065290E /* UIBalloon.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E41716451E0ABFC7002E5A4A /* UIColor+init.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+init.swift"; sourceTree = "<group>"; };
 		E44917C21E03304900D77171 /* UIBalloonLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBalloonLabel.swift; sourceTree = "<group>"; };
 		E44917C51E042FBA00D77171 /* UIBalloonTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBalloonTextField.swift; sourceTree = "<group>"; };
 		E4612CC21DFCC60F0065290E /* UIBalloon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBalloon.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				E48DE8111DE5990900FD7932 /* Storyboards */,
 				E48DE8021DE4EFE100FD7932 /* Assets.xcassets */,
 				E48DE8071DE4EFE100FD7932 /* Info.plist */,
+				E41716451E0ABFC7002E5A4A /* UIColor+init.swift */,
 			);
 			path = Sandbox;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				E48DE7FC1DE4EFE100FD7932 /* AppDelegate.swift in Sources */,
 				E4F7CA771E04872B0038429F /* BalloonProtocol.swift in Sources */,
 				E44917C31E03304900D77171 /* UIBalloonLabel.swift in Sources */,
+				E41716461E0ABFC7002E5A4A /* UIColor+init.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
