@@ -19,21 +19,6 @@ class UIBalloonBase: UIView, BalloonProtocol {
    fileprivate var _balloonArrowSize:CGSize = CGSize(width: 0, height: 0)
    fileprivate var _balloonArrowPosition = BalloonArrowPosition.center
    
-   convenience init(frame:CGRect, balloonTextColor:UIColor, balloonFontSize:CGFloat, balloonBackgroundColor:UIColor, balloonCornerRadius:Int, balloonBorderWidth:CGFloat, balloonBorderColor:UIColor, balloonArrowSize:CGSize, balloonArrowPosition:BalloonArrowPosition) {
-      self.init(frame: frame)
-      
-      self._balloonTextColor = balloonTextColor
-      self._balloonFontSize = balloonFontSize
-      self._balloonBackgroundColor = balloonBackgroundColor
-      self._balloonCornerRadius = balloonCornerRadius
-      self._balloonBorderWidth = balloonBorderWidth
-      self._balloonBorderColor = balloonBorderColor
-      self._balloonArrowSize = balloonArrowSize
-      self._balloonArrowPosition = balloonArrowPosition
-      
-      self.initialize()
-   }
-   
    override init(frame: CGRect) {
       super.init(frame: frame)
       self.initialize()
@@ -42,6 +27,11 @@ class UIBalloonBase: UIView, BalloonProtocol {
    required init?(coder aDecoder: NSCoder) {
       super.init(coder: aDecoder)
       self.initialize()
+   }
+   
+   func setFrame(balloonTextField:UIBalloonTextField) {
+      let newFrame = CGRect(x: balloonTextField.frame.origin.x, y: balloonTextField.frame.origin.y + balloonTextField.frame.height + 1, width: balloonTextField.frame.width, height: balloonTextField.frame.height + self.balloonArrowSize.height)
+      self.frame = newFrame
    }
    
    internal func initialize() {

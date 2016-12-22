@@ -29,7 +29,7 @@ class UIErrorBalloon: UIBalloonDefault {
       let red = UIColor(hex: 0xcc0000)
       
       self.balloonBorderColor = red
-      self.balloonTextColor = UIColor(hex: 0xeeeeee)
+      self.balloonTextColor = UIColor(hex: 0xfefefe)
       self.balloonBackgroundColor = red
       self.balloonBorderColor = red
       self.balloonArrowPosition = BalloonArrowPosition.right

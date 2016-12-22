@@ -63,5 +63,7 @@ class ErrorTestViewController: ViewController {
       
       
       //self.errorLabel.text = ""
+      
+      self.fullName.clearError()
    }
 }
