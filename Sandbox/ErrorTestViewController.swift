@@ -37,33 +37,34 @@ class ErrorTestViewController: ViewController {
    }
 
    @IBAction func onShowErrorPressed(_ sender: Any) {
-      self.fullName.setError(error: self._errorMessages[self._errorMessageIndex])
-      //self.errorBalloon.isHidden = false
-      //self.errorLabel.text = self._errorMessages[self._errorMessageIndex]
+      self.fullName.setWaiting()
       
-      self._errorMessageIndex += 1
-      if (self._errorMessageIndex == self._errorMessages.count) {
-         self._errorMessageIndex = 0
-      }
-      
-      /*
-      let image = UIImage(named: "error")
-      image.frame = CGRect(CGRect(x: 0, y: 0, width: 12, height: 12))
-      
-      let imageView = UIImageView(image: image!)
-      imageView.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
-      errorBalloon.setError(textField: fullName, imageView: imageView, error: "")
-      */
+      self.runAsyncWithDelay(2, closure: {
+         self.fullName.setError(error: self._errorMessages[self._errorMessageIndex])
+         
+         self._errorMessageIndex += 1
+         
+         if (self._errorMessageIndex == self._errorMessages.count) {
+            self._errorMessageIndex = 0
+         }
+      })
    }
    
    @IBAction func onHideErrorPressed(_ sender: Any) {
-      //self.errorBalloon.isHidden = true
-      //let rect = CGRect(x: self.errorBalloon.frame.origin.x, y: self.errorBalloon.frame.origin.y, width: self.errorBalloon.frame.width, height: 1)
-      //self.errorBalloon.frame = rect
+      self.fullName.clear()
+   }
+   
+   @IBAction func onShowSuccess(_ sender: Any) {
+      self.fullName.setWaiting()
       
-      
-      //self.errorLabel.text = ""
-      
-      self.fullName.clearError()
+      self.runAsyncWithDelay(2, closure: {
+         self.fullName.setSuccess()
+      })
+   }
+   
+   // Runs the code in the closure delay seconds from the point of execution, asynchronously.
+   func runAsyncWithDelay(_ delay: Double, closure: @escaping ()->()) {
+      let when = DispatchTime.now() + delay
+      DispatchQueue.main.asyncAfter(deadline: when, execute: closure)
    }
 }

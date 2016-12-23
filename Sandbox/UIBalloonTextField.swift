@@ -7,8 +7,7 @@
 import UIKit
 
 @IBDesignable public class UIBalloonTextField : UITextField {
-   fileprivate var _errorView:UIView?
-   fileprivate var _successView:UIView?
+   fileprivate var _imageView:UIView?
    
    override init(frame: CGRect) {
       super.init(frame: frame)
@@ -19,17 +18,45 @@ import UIKit
       super.init(coder: aDecoder)!
    }
    
-   @IBInspectable var errorImage:UIImage? = nil {
-      didSet {
-         // self.setErrorImage()
-      }
+   @IBInspectable var successImage:UIImage? = nil
+   @IBInspectable var errorImage:UIImage? = nil
+   @IBInspectable var waitingImage:UIImageView? = nil
+   
+   func setWaiting() {
+      self.clear()
+      
+      let imageView:UIImageView = UIImageView() //(rect: CGRect(x: 0, y: 0, width: 12, height: 12))
+      imageView.animationImages = [
+         UIImage(named: "waiting_0")!,
+         UIImage(named: "waiting_1")!,
+         UIImage(named: "waiting_2")!,
+         UIImage(named: "waiting_3")!,
+         UIImage(named: "waiting_4")!,
+         UIImage(named: "waiting_5")!,
+         UIImage(named: "waiting_6")!,
+         UIImage(named: "waiting_7")!,
+         UIImage(named: "waiting_8")!,
+         UIImage(named: "waiting_9")!,
+         UIImage(named: "waiting_10")!,
+         UIImage(named: "waiting_11")!]
+      imageView.animationDuration = 1.0;
+      imageView.animationRepeatCount = 0;
+      //[animatedImageView startAnimating];
+      //[self.view addSubview: animatedImageView];
+      self.setImage(imageView: imageView)
+      
+      imageView.startAnimating()
+   }
+   
+   func setSuccess() {
+      self.clear()
+      self.setImage(image: successImage)
    }
    
    func setError(error:String) {
-      self.clearError()
-      //self.clearErrorImage()
+      self.clear()
       
-      self.setErrorImage()
+      self.setImage(image: errorImage)
       
       // Create the error balloon for displaying errors.
       let errorBalloon = UIErrorBalloon(frame: self.frame)
@@ -55,19 +82,34 @@ import UIKit
       errorLabel.text = error
    }
    
-   fileprivate func setErrorImage() {
-      if (self.errorImage == nil) {
+   fileprivate func setImage(image:UIImage?) {
+      if (image == nil) {
          return
       }
       
-      let imageView = UIImageView(image: self.errorImage)
+      let imageView = UIImageView(image: image)
+      self.setImage(imageView: imageView)
+      
+      /*
       imageView.frame = CGRect(x: 0, y: 0, width: 12, height: 12)
       attachTapGesture(imageView: imageView)
-      self._errorView = UIView()
-      self._errorView?.addSubview(imageView)
-      self._errorView?.frame = CGRect(x: 0, y: 0, width: 18, height: 12)
+      self._imageView = UIView()
+      self._imageView?.addSubview(imageView)
+      self._imageView?.frame = CGRect(x: 0, y: 0, width: 18, height: 12)
       
-      self.rightView = self._errorView
+      self.rightView = self._imageView
+      self.rightViewMode = .always
+      */
+   }
+   
+   fileprivate func setImage(imageView:UIImageView) {
+      imageView.frame = CGRect(x: 0, y: 0, width: 12, height: 12)
+      attachTapGesture(imageView: imageView)
+      self._imageView = UIView()
+      self._imageView?.addSubview(imageView)
+      self._imageView?.frame = CGRect(x: 0, y: 0, width: 18, height: 12)
+      
+      self.rightView = self._imageView
       self.rightViewMode = .always
    }
    
@@ -85,16 +127,15 @@ import UIKit
       NSLayoutConstraint.activate([leading, trailing, top])
    }
    
-   func clearError() {
+   func clear() {
       // Remove any previous error balloons that have been displayed.
-      let errorBalloon = self.superview?.subviews.filter{ $0 is UIErrorBalloon }
-      if errorBalloon != nil {
-         errorBalloon?.first?.removeFromSuperview()
+      if let balloon = self.superview?.subviews.filter({ $0 is UIBalloonBase }) {
+         balloon.first?.removeFromSuperview()
       }
       
-      // Remove the error image on the textfield
-      if let errorView = self._errorView {
-         errorView.subviews.first?.removeFromSuperview()
+      // Remove the image attached to the textfield
+      if let imageView = self._imageView {
+         imageView.subviews.first?.removeFromSuperview()
       }
    }
    
@@ -106,7 +147,7 @@ import UIKit
    }
    
    func tap(_ gestureRecognizer: UITapGestureRecognizer) {
-      self.clearError()
+      self.clear()
    }
    
    override public func draw(_ rect: CGRect) {

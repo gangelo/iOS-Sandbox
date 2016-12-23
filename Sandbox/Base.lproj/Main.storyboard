@@ -50,8 +50,17 @@
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="image" keyPath="errorImage" value="error"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="successImage" value="success"/>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iCM-Pp-Gn2">
+                                        <rect key="frame" x="103" y="38" width="114" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Show Success"/>
+                                        <connections>
+                                            <action selector="onShowSuccess:" destination="8TO-Zb-RQ8" eventType="touchUpInside" id="fo8-jl-y8y"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -267,5 +276,6 @@
     </scenes>
     <resources>
         <image name="error" width="24" height="24"/>
+        <image name="success" width="24" height="24"/>
     </resources>
 </document>
