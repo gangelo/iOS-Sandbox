@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E41716461E0ABFC7002E5A4A /* UIColor+init.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41716451E0ABFC7002E5A4A /* UIColor+init.swift */; };
-		E41716481E0AF6FA002E5A4A /* BalloonArrowPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41716471E0AF6FA002E5A4A /* BalloonArrowPosition.swift */; };
 		E417164A1E0B024D002E5A4A /* BalloonProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41716491E0B024D002E5A4A /* BalloonProfile.swift */; };
 		E417164C1E0B0D68002E5A4A /* UIBalloonDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = E417164B1E0B0D68002E5A4A /* UIBalloonDefault.swift */; };
 		E44917C31E03304900D77171 /* UIBalloonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44917C21E03304900D77171 /* UIBalloonLabel.swift */; };
@@ -27,7 +26,6 @@
 
 /* Begin PBXFileReference section */
 		E41716451E0ABFC7002E5A4A /* UIColor+init.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+init.swift"; sourceTree = "<group>"; };
-		E41716471E0AF6FA002E5A4A /* BalloonArrowPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalloonArrowPosition.swift; sourceTree = "<group>"; };
 		E41716491E0B024D002E5A4A /* BalloonProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalloonProfile.swift; sourceTree = "<group>"; };
 		E417164B1E0B0D68002E5A4A /* UIBalloonDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBalloonDefault.swift; sourceTree = "<group>"; };
 		E44917C21E03304900D77171 /* UIBalloonLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBalloonLabel.swift; sourceTree = "<group>"; };
@@ -67,7 +65,6 @@
 				E4612CC41DFCC7210065290E /* UIErrorBalloon.swift */,
 				E44917C21E03304900D77171 /* UIBalloonLabel.swift */,
 				E4F7CA761E04872B0038429F /* BalloonProtocol.swift */,
-				E41716471E0AF6FA002E5A4A /* BalloonArrowPosition.swift */,
 				E41716491E0B024D002E5A4A /* BalloonProfile.swift */,
 			);
 			name = Balloon;
@@ -208,7 +205,6 @@
 				E48DE80F1DE53B8000FD7932 /* AspectViewController.swift in Sources */,
 				E44917C61E042FBA00D77171 /* UIBalloonTextField.swift in Sources */,
 				E417164C1E0B0D68002E5A4A /* UIBalloonDefault.swift in Sources */,
-				E41716481E0AF6FA002E5A4A /* BalloonArrowPosition.swift in Sources */,
 				E417164A1E0B024D002E5A4A /* BalloonProfile.swift in Sources */,
 				E4612CC51DFCC7210065290E /* UIErrorBalloon.swift in Sources */,
 				E4612CC31DFCC60F0065290E /* UIBalloonBase.swift in Sources */,

@@ -17,13 +17,13 @@ class BalloonProfile: BalloonProtocol {
    fileprivate var _balloonBorderWidth:CGFloat
    fileprivate var _balloonBorderColor:UIColor
    fileprivate var _balloonArrowSize:CGSize
-   fileprivate var _balloonArrowPosition:BalloonArrowPosition
+   fileprivate var _balloonArrowPosition:CGFloat
    
    convenience init() {
-      self.init(balloonTextColor: UIColor.black, balloonFontSize: 10.0, balloonBackgroundColor: UIColor.clear, balloonCornerRadius: 5, balloonBorderWidth: 0.5, balloonBorderColor: UIColor.black, balloonArrowSize:CGSize(width: 8, height: 8), balloonArrowPosition: BalloonArrowPosition.center)
+      self.init(balloonTextColor: UIColor.black, balloonFontSize: 10.0, balloonBackgroundColor: UIColor.clear, balloonCornerRadius: 5, balloonBorderWidth: 0.5, balloonBorderColor: UIColor.black, balloonArrowSize:CGSize(width: 8, height: 8), balloonArrowPosition: 0)
    }
    
-   init(balloonTextColor:UIColor, balloonFontSize:CGFloat, balloonBackgroundColor:UIColor, balloonCornerRadius:Int, balloonBorderWidth:CGFloat, balloonBorderColor:UIColor, balloonArrowSize:CGSize, balloonArrowPosition:BalloonArrowPosition) {
+   init(balloonTextColor:UIColor, balloonFontSize:CGFloat, balloonBackgroundColor:UIColor, balloonCornerRadius:Int, balloonBorderWidth:CGFloat, balloonBorderColor:UIColor, balloonArrowSize:CGSize, balloonArrowPosition:CGFloat) {
       
       self._balloonTextColor = balloonTextColor
       self._balloonFontSize = balloonFontSize
@@ -101,7 +101,7 @@ class BalloonProfile: BalloonProtocol {
       }
    }
    
-   var balloonArrowPosition: BalloonArrowPosition {
+   var balloonArrowPosition:CGFloat {
       get {
          return self._balloonArrowPosition
       }

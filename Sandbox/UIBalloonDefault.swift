@@ -32,7 +32,7 @@ class UIBalloonDefault: UIBalloonBase {
       self.balloonBorderWidth = 0.5
       self.balloonBorderColor = UIColor.black
       self.balloonArrowSize = CGSize(width: 8, height: 8)
-      self.balloonArrowPosition = BalloonArrowPosition.center
+      self.balloonArrowPosition = 0
 
    }
 }

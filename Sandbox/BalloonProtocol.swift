@@ -17,5 +17,5 @@ protocol BalloonProtocol {
    var balloonBorderWidth:CGFloat { get set }
    var balloonBorderColor:UIColor { get set }
    var balloonArrowSize:CGSize { get set }
-   var balloonArrowPosition:BalloonArrowPosition { get set }
+   var balloonArrowPosition:CGFloat { get set }
 }

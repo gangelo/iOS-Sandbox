@@ -13,19 +13,17 @@ import UIKit
       super.init(frame: frame)
    }
 
-   
    required public init(coder aDecoder: NSCoder) {
       super.init(coder: aDecoder)!
    }
    
    @IBInspectable var successImage:UIImage? = nil
    @IBInspectable var errorImage:UIImage? = nil
-   @IBInspectable var waitingImage:UIImageView? = nil
    
    func setWaiting() {
       self.clear()
       
-      let imageView:UIImageView = UIImageView() //(rect: CGRect(x: 0, y: 0, width: 12, height: 12))
+      let imageView:UIImageView = UIImageView()
       imageView.animationImages = [
          UIImage(named: "waiting_0")!,
          UIImage(named: "waiting_1")!,
@@ -41,8 +39,7 @@ import UIKit
          UIImage(named: "waiting_11")!]
       imageView.animationDuration = 1.0;
       imageView.animationRepeatCount = 0;
-      //[animatedImageView startAnimating];
-      //[self.view addSubview: animatedImageView];
+      
       self.setImage(imageView: imageView)
       
       imageView.startAnimating()
@@ -53,6 +50,22 @@ import UIKit
       self.setImage(image: successImage)
    }
    
+   // Returns the value of where the balloon's arrow should be positioned.
+   fileprivate func getBalloonArrowPosition() -> CGFloat {
+      if let imageContainer = self._imageView {
+         if let image = imageContainer.subviews.first {
+            
+            let imageViewPos = CGFloat((image.frame.width / 2) / 2)
+            let imageViewContainerPos = CGFloat(imageContainer.frame.width / 2)
+            
+            return self.frame.width - (imageViewPos + imageViewContainerPos)
+         }
+      }
+      
+      // Default is center
+      return self.frame.width / 2
+   }
+   
    func setError(error:String) {
       self.clear()
       
@@ -61,6 +74,17 @@ import UIKit
       // Create the error balloon for displaying errors.
       let errorBalloon = UIErrorBalloon(frame: self.frame)
       errorBalloon.setFrame(balloonTextField: self)
+      errorBalloon.balloonArrowPosition = getBalloonArrowPosition()
+      
+      if let imageContainer = self._imageView {
+         if let image = imageContainer.subviews.first {
+            
+            let imageViewPos = CGFloat((image.frame.width / 2) / 2)
+            let imageViewContainerPos = CGFloat(imageContainer.frame.width / 2)
+            
+            errorBalloon.balloonArrowPosition = self.frame.width - (imageViewPos + imageViewContainerPos)
+         }
+      }
       
       // This sets the color behind the balloon, so that the actuall balloon can be seen propoerly against the control background. 
       // errorBalloon.backgroundColor = self.superview?.backgroundColor
@@ -89,17 +113,6 @@ import UIKit
       
       let imageView = UIImageView(image: image)
       self.setImage(imageView: imageView)
-      
-      /*
-      imageView.frame = CGRect(x: 0, y: 0, width: 12, height: 12)
-      attachTapGesture(imageView: imageView)
-      self._imageView = UIView()
-      self._imageView?.addSubview(imageView)
-      self._imageView?.frame = CGRect(x: 0, y: 0, width: 18, height: 12)
-      
-      self.rightView = self._imageView
-      self.rightViewMode = .always
-      */
    }
    
    fileprivate func setImage(imageView:UIImageView) {

@@ -17,7 +17,7 @@ class UIBalloonBase: UIView, BalloonProtocol {
    fileprivate var _balloonBorderWidth:CGFloat = 1
    fileprivate var _balloonBorderColor:UIColor = UIColor.black
    fileprivate var _balloonArrowSize:CGSize = CGSize(width: 0, height: 0)
-   fileprivate var _balloonArrowPosition = BalloonArrowPosition.center
+   fileprivate var _balloonArrowPosition:CGFloat = 0
    
    override init(frame: CGRect) {
       super.init(frame: frame)
@@ -102,7 +102,7 @@ class UIBalloonBase: UIView, BalloonProtocol {
       }
    }
    
-   var balloonArrowPosition: BalloonArrowPosition {
+   var balloonArrowPosition:CGFloat {
       get {
          return self._balloonArrowPosition
       }
@@ -112,12 +112,6 @@ class UIBalloonBase: UIView, BalloonProtocol {
    }
    
    // BalloonProtocol - end
-   
-   func clearAndHide() {
-      let balloonLabel = self.subviews.first as! UIBalloonLabel
-      self.isHidden = true
-      balloonLabel.text = ""
-   }
    
    // This function amends the working rect to exclude the portion of the
    // normal rect needed to display the balloon arrow. We need to know this 
@@ -143,16 +137,41 @@ class UIBalloonBase: UIView, BalloonProtocol {
       self.balloonBorderColor.setStroke()
       self.balloonBackgroundColor.setFill()
       
-      var path = UIBezierPath(roundedRect: adjustedRect, byRoundingCorners: .allCorners, cornerRadii: CGSize(width: self.balloonCornerRadius, height: self.balloonCornerRadius))
+      let path = UIBezierPath(roundedRect: adjustedRect, byRoundingCorners: .allCorners, cornerRadii: CGSize(width: self.balloonCornerRadius, height: self.balloonCornerRadius))
       path.lineWidth = self.balloonBorderWidth
       path.fill()
       path.stroke()
       
       // Arrow
+      self.drawArrow(adjustedRect: adjustedRect)
+   }
+   
+   fileprivate func drawArrow(adjustedRect:CGRect) {
       self.balloonBorderColor.setStroke()
       self.balloonBackgroundColor.setFill()
       
-      path = UIBezierPath()
+      //let x = (adjustedRect.size.width / 2)
+      // Half of the (width of the outer view, + (half of half of the image width))
+      
+      let x = self.balloonArrowPosition
+      
+      let path = UIBezierPath()
+      path.move(to: CGPoint(x: x - (self.balloonArrowSize.width / 2), y: adjustedRect.origin.y))
+      path.addLine(to: CGPoint(x: x, y: adjustedRect.origin.y - self.balloonArrowSize.height))
+      path.addLine(to: CGPoint(x: x + (self.balloonArrowSize.width / 2), y: adjustedRect.origin.y))
+      
+      path.close()
+      path.lineWidth = self.balloonBorderWidth
+      path.stroke()
+      path.fill()
+      
+   }
+   
+   fileprivate func _drawArrow(adjustedRect:CGRect) {
+      self.balloonBorderColor.setStroke()
+      self.balloonBackgroundColor.setFill()
+      
+      let path = UIBezierPath()
       path.move(to: CGPoint(x: (adjustedRect.size.width / 2) - (self.balloonArrowSize.width / 2), y: adjustedRect.origin.y))
       path.addLine(to: CGPoint(x: (adjustedRect.size.width / 2), y: adjustedRect.origin.y - self.balloonArrowSize.height))
       path.addLine(to: CGPoint(x: (adjustedRect.size.width / 2) + (self.balloonArrowSize.width / 2), y: adjustedRect.origin.y))
@@ -161,6 +180,7 @@ class UIBalloonBase: UIView, BalloonProtocol {
       path.lineWidth = self.balloonBorderWidth
       path.stroke()
       path.fill()
+  
    }
    
    func resizeToFitSubviews() {

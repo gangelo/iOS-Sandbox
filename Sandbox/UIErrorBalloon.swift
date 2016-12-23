@@ -32,6 +32,6 @@ class UIErrorBalloon: UIBalloonDefault {
       self.balloonTextColor = UIColor(hex: 0xfefefe)
       self.balloonBackgroundColor = red
       self.balloonBorderColor = red
-      self.balloonArrowPosition = BalloonArrowPosition.right
+      self.balloonArrowPosition = 0
    }
 }
