@@ -8,12 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E41716461E0ABFC7002E5A4A /* UIColor+init.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41716451E0ABFC7002E5A4A /* UIColor+init.swift */; };
-		E417164A1E0B024D002E5A4A /* BalloonProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41716491E0B024D002E5A4A /* BalloonProfile.swift */; };
-		E417164C1E0B0D68002E5A4A /* UIBalloonDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = E417164B1E0B0D68002E5A4A /* UIBalloonDefault.swift */; };
-		E44917C31E03304900D77171 /* UIBalloonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44917C21E03304900D77171 /* UIBalloonLabel.swift */; };
-		E44917C61E042FBA00D77171 /* UIBalloonTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44917C51E042FBA00D77171 /* UIBalloonTextField.swift */; };
-		E4612CC31DFCC60F0065290E /* UIBalloonBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4612CC21DFCC60F0065290E /* UIBalloonBase.swift */; };
-		E4612CC51DFCC7210065290E /* UIErrorBalloon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4612CC41DFCC7210065290E /* UIErrorBalloon.swift */; };
 		E48DE7FC1DE4EFE100FD7932 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48DE7FB1DE4EFE100FD7932 /* AppDelegate.swift */; };
 		E48DE7FE1DE4EFE100FD7932 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48DE7FD1DE4EFE100FD7932 /* ViewController.swift */; };
 		E48DE8011DE4EFE100FD7932 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E48DE7FF1DE4EFE100FD7932 /* Main.storyboard */; };
@@ -21,17 +15,10 @@
 		E48DE8061DE4EFE100FD7932 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E48DE8041DE4EFE100FD7932 /* LaunchScreen.storyboard */; };
 		E48DE80F1DE53B8000FD7932 /* AspectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48DE80E1DE53B8000FD7932 /* AspectViewController.swift */; };
 		E4D83E021DF881200058E641 /* ErrorTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D83E011DF881200058E641 /* ErrorTestViewController.swift */; };
-		E4F7CA771E04872B0038429F /* BalloonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F7CA761E04872B0038429F /* BalloonProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E41716451E0ABFC7002E5A4A /* UIColor+init.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+init.swift"; sourceTree = "<group>"; };
-		E41716491E0B024D002E5A4A /* BalloonProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalloonProfile.swift; sourceTree = "<group>"; };
-		E417164B1E0B0D68002E5A4A /* UIBalloonDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBalloonDefault.swift; sourceTree = "<group>"; };
-		E44917C21E03304900D77171 /* UIBalloonLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBalloonLabel.swift; sourceTree = "<group>"; };
-		E44917C51E042FBA00D77171 /* UIBalloonTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBalloonTextField.swift; sourceTree = "<group>"; };
-		E4612CC21DFCC60F0065290E /* UIBalloonBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBalloonBase.swift; sourceTree = "<group>"; };
-		E4612CC41DFCC7210065290E /* UIErrorBalloon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIErrorBalloon.swift; sourceTree = "<group>"; };
 		E48DE7F81DE4EFE100FD7932 /* Sandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sandbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E48DE7FB1DE4EFE100FD7932 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E48DE7FD1DE4EFE100FD7932 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -42,7 +29,6 @@
 		E48DE80E1DE53B8000FD7932 /* AspectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AspectViewController.swift; sourceTree = "<group>"; };
 		E4D83E011DF881200058E641 /* ErrorTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorTestViewController.swift; sourceTree = "<group>"; };
 		E4D83E1C1DFB54340058E641 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground.playground; path = Playground/MyPlayground.playground; sourceTree = "<group>"; };
-		E4F7CA761E04872B0038429F /* BalloonProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalloonProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,20 +42,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E4612CC11DFCC5F90065290E /* Balloon */ = {
-			isa = PBXGroup;
-			children = (
-				E44917C51E042FBA00D77171 /* UIBalloonTextField.swift */,
-				E4612CC21DFCC60F0065290E /* UIBalloonBase.swift */,
-				E417164B1E0B0D68002E5A4A /* UIBalloonDefault.swift */,
-				E4612CC41DFCC7210065290E /* UIErrorBalloon.swift */,
-				E44917C21E03304900D77171 /* UIBalloonLabel.swift */,
-				E4F7CA761E04872B0038429F /* BalloonProtocol.swift */,
-				E41716491E0B024D002E5A4A /* BalloonProfile.swift */,
-			);
-			name = Balloon;
-			sourceTree = "<group>";
-		};
 		E48DE7EF1DE4EFE100FD7932 = {
 			isa = PBXGroup;
 			children = (
@@ -89,7 +61,6 @@
 		E48DE7FA1DE4EFE100FD7932 /* Sandbox */ = {
 			isa = PBXGroup;
 			children = (
-				E4612CC11DFCC5F90065290E /* Balloon */,
 				E4D83E1B1DFB53C70058E641 /* Playground */,
 				E48DE7FB1DE4EFE100FD7932 /* AppDelegate.swift */,
 				E48DE8111DE5990900FD7932 /* Storyboards */,
@@ -203,16 +174,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E48DE80F1DE53B8000FD7932 /* AspectViewController.swift in Sources */,
-				E44917C61E042FBA00D77171 /* UIBalloonTextField.swift in Sources */,
-				E417164C1E0B0D68002E5A4A /* UIBalloonDefault.swift in Sources */,
-				E417164A1E0B024D002E5A4A /* BalloonProfile.swift in Sources */,
-				E4612CC51DFCC7210065290E /* UIErrorBalloon.swift in Sources */,
-				E4612CC31DFCC60F0065290E /* UIBalloonBase.swift in Sources */,
 				E4D83E021DF881200058E641 /* ErrorTestViewController.swift in Sources */,
 				E48DE7FE1DE4EFE100FD7932 /* ViewController.swift in Sources */,
 				E48DE7FC1DE4EFE100FD7932 /* AppDelegate.swift in Sources */,
-				E4F7CA771E04872B0038429F /* BalloonProtocol.swift in Sources */,
-				E44917C31E03304900D77171 /* UIBalloonLabel.swift in Sources */,
 				E41716461E0ABFC7002E5A4A /* UIColor+init.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
